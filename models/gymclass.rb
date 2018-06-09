@@ -1,6 +1,6 @@
 require_relative('../db/sql_runner')
-require_relative("./signed_up.rb")
-require_relative("./member.rb")
+# require_relative("./signed_up.rb")
+# require_relative("./member.rb")
 
 class Gymclass
 
@@ -35,8 +35,8 @@ class Gymclass
   #shows all gymclasses
   def self.all()
     sql = "SELECT * FROM gymclass"
-    results = SqlRunner(sql)
-    return results.map { |gymclass| Gymclass.new(gymclass) }
+    results = SqlRunner.run(sql)
+    return results.map { |gym_class| Gymclass.new(gym_class)}
   end
 
   #deletes from gymclass
@@ -58,6 +58,17 @@ class Gymclass
     values = [@title, @time]
     SqlRunner.run(sql, values)
   end
+
+  def self.find(id)
+    sql = "SELECT * FROM gymclass WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return Gymclass.new(results.first)
+  end
+
+  def edit()
+    return "#{@title.capitalize} #{@time.capitalize}"
+  end 
 
 
 end

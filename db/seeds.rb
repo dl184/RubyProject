@@ -37,6 +37,7 @@ member1 = Member.new({
           })
           gymclass2.save()
 
+
           gymclass3 = Gymclass.new({
             "title" => "Pilates",
             "time" => 7
@@ -50,5 +51,4 @@ member1 = Member.new({
             signed_up3 = Signed_up.new({'member_id' => member3.id, 'gymclass.id' => gymclass3.id})
             signed_up3.save()
 
-            binding.pry
-            nil
+        

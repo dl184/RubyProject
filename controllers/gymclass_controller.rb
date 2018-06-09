@@ -4,7 +4,7 @@ require_relative( '../models/gymclass.rb' )
 also_reload( '../models/*' )
 
 get '/gymclass' do
-  @gymclass = Gymclass.new.all()
+  @gymclass = Gymclass.all()
   erb ( :"gymclass/index" )
 end
 
