@@ -12,3 +12,13 @@ get '/members/:id' do
   @members = Member.find(params['id'])
   erb(:"members/show")
 end
+
+get '/member/:id/edit' do
+  @member = Gymclass.find(params[:id])
+  (erb :edit)
+end
+
+post '/member/:id' do
+  Member.new(params).update
+  redirect to "member/#{params['id']}"
+end

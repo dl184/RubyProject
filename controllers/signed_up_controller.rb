@@ -28,3 +28,13 @@ post '/signed_up' do
     Signed_up.destroy(params[:id])
     redirect to ("/signed_up")
   end
+
+  get '/signed_up/:id/edit' do
+    @signed_up = Signed_up.find(params[:id])
+    (erb :edit)
+  end
+
+  post '/signed_up/:id' do
+    Signed_up.new(params).update
+    redirect to "signed_up/#{params['id']}"
+  end
