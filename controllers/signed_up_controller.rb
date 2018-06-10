@@ -33,8 +33,3 @@ post '/signed_up' do
     @signed_up = Signed_up.find(params[:id])
     (erb :edit)
   end
-
-  post '/signed_up/:id' do
-    Signed_up.new(params).update
-    redirect to "signed_up/#{params['id']}"
-  end

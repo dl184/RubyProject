@@ -5,20 +5,30 @@ also_reload( '../models/*' )
 
 get '/gymclass' do
   @gymclass = Gymclass.all()
-  erb ( :"gymclass/index" )
+  (erb :"gymclass/index")
 end
 
-get '/gymclass/:id' do
+get '/gymclass/new' do #new class
+  @gymclass = Gymclass.all()
+  (erb :"gymclass/new")
+end
+
+get '/gymclass/:id' do #show class
   @gymclass = Gymclass.find(params['id'].to_i)
-  erb(:"gymclass/show" )
+  (erb :"gymclass/show")
 end
 
-get '/gymclass/:id/edit' do
+get '/gymclass/:id/edit' do #edit class
   @gymclass = Gymclass.find(params[:id])
-  (erb :edit)
+  (erb :"gymclass/edit")
 end
 
-post '/gymclass/:id' do
+post '/gymclass/:id' do #update class
   Gymclass.new(params).update
   redirect to "gymclass/#{params['id']}"
-end 
+end
+
+post '/gymclass/:id/delete' do #delete class
+  Gymclass.delete(params[:id])
+  redirect to '/gymclass'
+end

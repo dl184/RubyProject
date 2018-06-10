@@ -55,7 +55,7 @@ class Gymclass
   #updates gym class
   def update()
     sql = "UPDATE gymclass SET(title, time) = ($1, $2) WHERE id = $3;"
-    values = [@title, @time]
+    values = [@title, @time, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -68,7 +68,7 @@ class Gymclass
 
   def edit()
     return "#{@title.capitalize} #{@time.capitalize}"
-  end 
+  end
 
 
 end

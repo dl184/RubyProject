@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+<form method ="POST" action ="/gymclass/<%= @gymclass.id%>">
 
-</body>
-</html>
+  <label for = "title-field">Title:</label>
+  <input type ="text" name ="title" id ="title-field" value ="<%=@gymclass.title %>" />
+
+  <label for ="time-field">Time:</label>
+  <input type ="text" name ="time" id ="time-field" value="<%=@gymclass.time %>" />
+
+  <input type ="submit" values="Edit Class" />
+
+</form>

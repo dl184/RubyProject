@@ -1,1 +1,12 @@
-<p>Title <%=@gymclass.title %></p>
+<h1>Gym Classes</h1>
+
+<p>Title: <%=@gymclass.title %></p>
+<p>Time: <%=@gymclass.time %></p>
+
+<form action ="/gymclass/<%= @gymclass.id %>/edit">
+  <input type ="submit" value ="Edit Class"/>
+</form>
+
+<form method ="post" action ="/gymclass/<%= @gymclass.id %>/delete">
+  <input type ="submit" value ="Delete Class"/>
+</form>

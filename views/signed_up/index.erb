@@ -1,4 +1,18 @@
-<h1>People signed up for a class</h1>
+<h1>All bookings</h1>
 
-<% for signed_up in @signed_up %></p>
+<p class="btn--wrapper">
+  <a class="btn btn--action" href="/signed_up/new">Signed Up Member</a>
+</p>
+
+<% for signed_up in @signed_up %>
+<li>
+  <p><%= signed_up.member.first_name %> <%= @signed_up.sample %> <%= signed_up.gymclass.title %> </p>
+
 <p>
+  <form action="/signed_up/<%= signed_ip.id %>/delete" method="POST">
+    <input class="btn btn --danger" type="submit" value="delete" />
+  </form>
+</p>
+</li>
+<% end %>
+</ul>

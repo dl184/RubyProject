@@ -3,4 +3,10 @@
 <% for gymclass in @gymclass %>
 <p>Title: <%= gymclass.title %></p>
 <p>Time: <%= gymclass.time %></p>
+
+
+<form action ="/gymclass/<%= gymclass.id%>">
+  <input type ="submit" value ="View Class Information"/>
+</form>
+
 <%end%>
