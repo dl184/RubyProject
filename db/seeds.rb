@@ -27,20 +27,20 @@ member1 = Member.new({
 
       gymclass1 = Gymclass.new({
         "title" => "Spinfit",
-        "time" => 8
+        "time" => "8:00"
         })
         gymclass1.save()
 
         gymclass2 = Gymclass.new({
           "title" => "Yoga",
-          "time" => 5
+          "time" => "5:00"
           })
           gymclass2.save()
 
 
           gymclass3 = Gymclass.new({
             "title" => "Pilates",
-            "time" => 7
+            "time" => "7:00"
             })
             gymclass3.save()
 
@@ -50,5 +50,3 @@ member1 = Member.new({
             signed_up2.save()
             signed_up3 = Signed_up.new({'member_id' => member3.id, 'gymclass.id' => gymclass3.id})
             signed_up3.save()
-
-        

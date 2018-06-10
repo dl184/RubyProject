@@ -13,7 +13,7 @@ CREATE TABLE gymclass
 (
   id SERIAL8 PRIMARY KEY,
   title VARCHAR(255),
-  time INT8
+  time VARCHAR(255)
 );
 CREATE TABLE signed_up
 (

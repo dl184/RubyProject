@@ -33,3 +33,9 @@ post '/signed_up' do
     @signed_up = Signed_up.find(params[:id])
     (erb :edit)
   end
+
+  get '/signed_up/:id/bookings' do
+    @members = Member.find(params[:id])
+    @gymclass = @member.bookings()
+    erb (:"member/bookings")
+  end

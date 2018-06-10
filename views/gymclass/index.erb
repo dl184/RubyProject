@@ -1,12 +1,29 @@
 <h1>Gym Classes</h1>
 
-<% for gymclass in @gymclass %>
-<p>Title: <%= gymclass.title %></p>
-<p>Time: <%= gymclass.time %></p>
-
-
-<form action ="/gymclass/<%= gymclass.id%>">
-  <input type ="submit" value ="View Class Information"/>
+<form method "get" action="/gymclass/new">
+  <input type="submit" value="New Class"/>
 </form>
 
-<%end%>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Time</th>
+  </tr>
+
+  <% for gymclass in @gymclass %>
+  <tr>
+    <td>
+      <%= gymclass.title %>
+    </td>
+    <td>
+    <%= gymclass.time %>
+  </td>
+</tr>
+<td>
+  <form action ="/gymclass/<%= gymclass.id%>">
+    <input type ="submit" value ="Class Info"/>
+  </form>
+</td>
+
+  <%end%>
+</table>

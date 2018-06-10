@@ -40,10 +40,10 @@ class Gymclass
   end
 
   #deletes from gymclass
-  def delete()
+  def self.delete(id)
     sql = "DELETE from gymclass WHERE id = $1"
     values = [id]
-    SqlRunner.run(sql)
+    SqlRunner.run(sql, values)
   end
 
   #deletes all from gymclass

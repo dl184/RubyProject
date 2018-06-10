@@ -56,4 +56,12 @@ class Signed_up
     SqlRunner.run(sql, values)
   end
 
+  def bookings()
+    sql = "SELECT signed_up.* FROM signed_up INNER JOIN bookings.signed_up_id
+    = signed_up.id INNER JOIN members ON member.id WHERE member.id = $1"
+    values =[@id]
+    results = SqlRunner(sql, values)
+    return results.map{|results Signed_up.new(results)}
+  end 
+
 end

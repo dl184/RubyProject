@@ -1,7 +1,16 @@
 <h1>Gym Classes</h1>
 
-<p>Title: <%=@gymclass.title %></p>
-<p>Time: <%=@gymclass.time %></p>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Time</th>
+  </tr>
+
+<tr>
+  <td><%= @gymclass.title %></td>
+  <td><%= @gymclass.time %></td>
+</tr>
+</table>
 
 <form action ="/gymclass/<%= @gymclass.id %>/edit">
   <input type ="submit" value ="Edit Class"/>
