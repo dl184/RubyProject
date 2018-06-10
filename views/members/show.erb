@@ -1,1 +1,12 @@
+<h1>Members</h1>
+
+
 <p>Name: <%=@members.first_name %> <%=@members.second_name %></p>
+
+<form action ="/members/<%= @members.id %>edit">
+  <input type ="submit" value ="Edit Members"/>
+</form>
+
+<form method ="members/<% @members.id %>/delete">
+  <input type ="submit" value ="Delete Member"/>
+</form>

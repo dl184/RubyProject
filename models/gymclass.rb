@@ -1,6 +1,6 @@
 require_relative('../db/sql_runner')
-# require_relative("./signed_up.rb")
-# require_relative("./member.rb")
+require_relative("./signed_up.rb")
+require_relative("./member.rb")
 
 class Gymclass
 
@@ -20,7 +20,7 @@ class Gymclass
     return results.map { |member| Member.new(member)}
   end
 
-  #save gymclass
+  #new gymclass
   def save()
     sql = "INSERT INTO gymclass
     (title,time)
@@ -66,9 +66,7 @@ class Gymclass
     return Gymclass.new(results.first)
   end
 
-  def edit()
-    return "#{@title.capitalize} #{@time.capitalize}"
-  end
+
 
 
 end

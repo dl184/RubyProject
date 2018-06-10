@@ -61,7 +61,7 @@ class Signed_up
     = signed_up.id INNER JOIN members ON member.id WHERE member.id = $1"
     values =[@id]
     results = SqlRunner(sql, values)
-    return results.map{|results Signed_up.new(results)}
-  end 
+    return results.map{|results| Signed_up.new(results)}
+  end
 
 end

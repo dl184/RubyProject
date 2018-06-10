@@ -12,12 +12,8 @@
 
   <% for gymclass in @gymclass %>
   <tr>
-    <td>
-      <%= gymclass.title %>
-    </td>
-    <td>
-    <%= gymclass.time %>
-  </td>
+    <td><%= gymclass.title %></td>
+    <td><%= gymclass.time %></td>
 </tr>
 <td>
   <form action ="/gymclass/<%= gymclass.id%>">

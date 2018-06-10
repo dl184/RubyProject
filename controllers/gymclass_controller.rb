@@ -23,6 +23,12 @@ get '/gymclass/:id/edit' do #edit class
   (erb :"gymclass/edit")
 end
 
+post '/gymclass/:id' do #create a new gymclass
+  Gymclass.new(params).save
+  redirect to '/gymclass'
+end
+
+
 post '/gymclass/:id' do #update class
   Gymclass.new(params).update
   redirect to "gymclass/#{params['id']}"

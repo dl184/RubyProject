@@ -1,6 +1,24 @@
 <h1>Members Page</h1>
 
+<form method="get" action="members/new">
+  <input type ="submit" value ="New Member"/>
+</form>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Second Name</th>
+  </tr>
   <% for member in @members %>
-  <p>First Name: <%= member.first_name %></p>
-  <p>Second Name: <%= member.second_name %></p>
+  <tr>
+    <td><%= member.first_name %></td>
+    <td><%= member.second_name %></td>
+  </tr>
+  <td>
+    <form action="/members/<%= member.id%>">
+      <input type="submit" value="View Member"/>
+    </form>
+  </td>
+
   <%end%>
+</table>

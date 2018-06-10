@@ -5,9 +5,9 @@ require_relative("./signed_up.rb")
 class Member
 
   attr_reader( :id )
-  attr_accessor( :first_name, :second_name, )
+  attr_accessor( :first_name, :second_name )
 
-  def initialize( options )
+  def initialize(options)
     @id = options['id'].to_i if options['id']
     @first_name = options['first_name']
     @second_name = options['second_name']
@@ -20,42 +20,37 @@ class Member
     return results.map  { |gymclass| Gymclass.new(gymclass)}
   end
 
-  def save()
+  def save() #create new member
     sql = "INSERT INTO members
-    (
-      first_name,
-      second_name
-    )
+    (first_name,second_name)
     VALUES
-    (
-      $1, $2
-    )
+    ($1, $2)
     RETURNING id"
     values = [@first_name, @second_name]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
-  def self.all()
+  def self.all() #returns all members
     sql = "SELECT * FROM members"
     results = SqlRunner.run(sql)
     return results.map {|members| Member.new(members)}
   end
 
-  def delete()
+  def self.delete(id) #deletes members
     sql = "DELETE from members WHERE id = $1"
     values = [id]
-    SqlRunner.run(sql)
+    SqlRunner.run(sql, values)
   end
 
-  def self.delete_all()
+  def self.delete_all() #deletes all
     sql = "DELETE FROM members"
     SqlRunner.run(sql)
   end
 
   def update()
     sql = "UPDATE members SET(first_name, second_name) = ($1, $2) WHERE id = $3;"
-    values = [@first_name, @second_name]
+    values = [@first_name, @second_name, @id]
     SqlRunner.run(sql,values)
   end
 

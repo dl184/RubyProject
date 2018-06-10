@@ -8,22 +8,32 @@ get '/members' do
   erb (:"members/index")
 end
 
-get '/members/new' do #new class
+get '/members/new' do #new
   @members = Member.all()
-  erb(:member/new)
+  erb (:"members/new")
 end
 
-get '/members/:id' do
+get '/members/:id' do #show
   @members = Member.find(params['id'])
-  erb(:"members/show")
+  erb (:"members/show")
 end
 
-get '/member/:id/edit' do
+get '/member/:id/edit' do #edit
   @member = Gymclass.find(params[:id])
-  (erb :edit)
+  erb (:"edit")
 end
 
-post '/member/:id' do
+post '/member/:id' do #create new member
+  Member.new(params).save
+  redirect to '/members'
+end
+
+post '/member/:id' do #update
   Member.new(params).update
   redirect to "member/#{params['id']}"
 end
+
+post '/member/:id/delete' do #delete
+  Member.delete(params[:id])
+  redirect to '/members'
+end 

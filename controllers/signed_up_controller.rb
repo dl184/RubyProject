@@ -8,20 +8,19 @@ also_reload('../models/*')
 
 get '/signed_up' do
   @signed_up = Signed_up.all()
-  erb ( :"signed_up/index" )
+  erb (:"signed_up/index")
 end
 
 get '/signed_up/new' do
   @members = Members.all
   @gymclass = Gymclass.all
-  erb(:"signed_up/new")
+  erb (:"signed_up/new")
 end
 
 post '/signed_up' do
   signed_up = Signed_up.new(params)
   signed_up.save
-  redirect to(
-    "/signed_up")
+  redirect to("/signed_up")
   end
 
   post 'signed_up/:id/delete' do
@@ -31,7 +30,7 @@ post '/signed_up' do
 
   get '/signed_up/:id/edit' do
     @signed_up = Signed_up.find(params[:id])
-    (erb :edit)
+    erb (:"edit")
   end
 
   get '/signed_up/:id/bookings' do
