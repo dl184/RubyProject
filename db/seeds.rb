@@ -50,3 +50,6 @@ member1 = Member.new({
             signed_up2.save()
             signed_up3 = Signed_up.new({'member_id' => member3.id, 'gymclass_id' => gymclass3.id})
             signed_up3.save()
+
+            binding.pry
+            nil

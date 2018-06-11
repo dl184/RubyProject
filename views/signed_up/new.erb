@@ -1,19 +1,21 @@
-<h1>Hello</h1>
+<h1>Choose a club member and a class</h1>
 
-<form action="gymclass/<%@gymclass.id%>/signed_up" method="post">
+<form action="/signed_up" method="post">
   <label>
-    Select a Member:
+    Select a member:
     <select name="member_id">
-      <% for members in @members %>
-      <option value="<%= member.id %>"<%=member.first_name %></option>
+      <% for member in @members %>
+      <option value="<%= member.id %>"><%= member.first_name %></option>
+      <% end %>
       </select>
   </label>
   <label>
-    Select a Gym Class:
-    <select gymclass="gymclass_id">
+    Select a class:
+    <select name="gymclass_id">
       <% for gymclass in @gymclass %>
-      <option value="<%= gymclass.id>"<%=gymclass.title %></option>
-    </select>
+      <option value="<%= gymclass.id %>"><%= gymclass.title %></option>
+      <% end %>
+      </select>
   </label>
 
 

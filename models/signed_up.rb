@@ -39,10 +39,10 @@ class Signed_up
     return Gymclass.new(results.first)
   end
 
-  def delete()
+  def self.delete(id)
     sql = "DELETE from signed_up WHERE id = $1"
     values = [id]
-    SqlRunner.run(sql)
+    SqlRunner.run(sql, values)
   end
 
   def self.delete_all()

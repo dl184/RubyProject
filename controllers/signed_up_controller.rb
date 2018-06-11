@@ -12,20 +12,9 @@ get '/signed_up' do
 end
 
 get '/signed_up/new' do
-  @members = Members.all
+  @members = Member.all
   @gymclass = Gymclass.all
   erb (:"signed_up/new")
-end
-
-post '/signed_up' do
-  signed_up = Signed_up.new(params)
-  signed_up.save
-  redirect to("/signed_up")
-end
-
-post 'signed_up/:id/delete' do
-  Signed_up.destroy(params[:id])
-  redirect to ("/signed_up")
 end
 
 get '/signed_up/:id/edit' do
@@ -33,8 +22,19 @@ get '/signed_up/:id/edit' do
   erb (:"edit")
 end
 
-get '/signed_up/:id/bookings' do
+get '/signed_up/:id/bookings' do #find booking
   @members = Member.find(params[:id])
   @gymclass = @member.bookings()
   erb (:"member/new")
+end
+
+post '/signed_up/:id/delete' do #delete
+  Signed_up.delete(params[:id])
+  redirect to ("/signed_up")
+end
+
+post '/signed_up' do
+  signed_up = Signed_up.new(params)
+  signed_up.save
+  redirect to("/signed_up")
 end
