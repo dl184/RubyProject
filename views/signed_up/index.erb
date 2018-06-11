@@ -1,15 +1,15 @@
 <h1>All bookings</h1>
 
-<p class="btn--wrapper">
-  <a class="btn btn--action" href="/signed_up/new">Signed Up Member</a>
-</p>
-
+<form method ="get" action ="/booking/new">
+  <input type ="submit" value="New Booking"/>
+</form>
+<ul>
 <% for signed_up in @signed_up %>
 <li>
   <p><%= signed_up.member.first_name %> <%= @signed_up.sample %> <%= signed_up.gymclass.title %> </p>
 
 <p>
-  <form action="/signed_up/<%= signed_ip.id %>/delete" method="POST">
+  <form action="/signed_up/<%= signed_up.id %>/delete" method="POST">
     <input class="btn btn --danger" type="submit" value="delete" />
   </form>
 </p>

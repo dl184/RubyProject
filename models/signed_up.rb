@@ -1,4 +1,4 @@
-require_relative("../db/sql_runner")
+require_relative('../db/sql_runner')
 require_relative("./gymclass.rb")
 require_relative("./member.rb")
 
@@ -21,7 +21,7 @@ class Signed_up
 
   def self.all()
     sql = "SELECT * FROM signed_up"
-    results = SqlRunner(sql)
+    results = SqlRunner.run(sql)
     return results.map {|signed_up| Signed_up.new(signed_up)}
   end
 
@@ -35,7 +35,7 @@ class Signed_up
   def gymclass()
     sql = "SELECT * FROM gymclass WHERE id = $1"
     values = [@gymclass_id]
-    results SqlRunner.run(sql, values)
+    results = SqlRunner.run(sql, values)
     return Gymclass.new(results.first)
   end
 

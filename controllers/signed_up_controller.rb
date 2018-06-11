@@ -21,20 +21,20 @@ post '/signed_up' do
   signed_up = Signed_up.new(params)
   signed_up.save
   redirect to("/signed_up")
-  end
+end
 
-  post 'signed_up/:id/delete' do
-    Signed_up.destroy(params[:id])
-    redirect to ("/signed_up")
-  end
+post 'signed_up/:id/delete' do
+  Signed_up.destroy(params[:id])
+  redirect to ("/signed_up")
+end
 
-  get '/signed_up/:id/edit' do
-    @signed_up = Signed_up.find(params[:id])
-    erb (:"edit")
-  end
+get '/signed_up/:id/edit' do
+  @signed_up = Signed_up.find(params[:id])
+  erb (:"edit")
+end
 
-  get '/signed_up/:id/bookings' do
-    @members = Member.find(params[:id])
-    @gymclass = @member.bookings()
-    erb (:"member/bookings")
-  end
+get '/signed_up/:id/bookings' do
+  @members = Member.find(params[:id])
+  @gymclass = @member.bookings()
+  erb (:"member/new")
+end

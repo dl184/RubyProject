@@ -48,5 +48,5 @@ member1 = Member.new({
             signed_up1.save()
             signed_up2 = Signed_up.new({'member_id' => member2.id, 'gymclass_id' => gymclass2.id})
             signed_up2.save()
-            signed_up3 = Signed_up.new({'member_id' => member3.id, 'gymclass.id' => gymclass3.id})
+            signed_up3 = Signed_up.new({'member_id' => member3.id, 'gymclass_id' => gymclass3.id})
             signed_up3.save()

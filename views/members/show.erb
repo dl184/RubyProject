@@ -3,10 +3,10 @@
 
 <p>Name: <%=@members.first_name %> <%=@members.second_name %></p>
 
-<form action ="/members/<%= @members.id %>edit">
+<form action ="/member/<%= @members.id %>/edit" method="get">
   <input type ="submit" value ="Edit Members"/>
 </form>
 
-<form method ="members/<% @members.id %>/delete">
+<form action ="/members/<%= @members.id %>/delete" method="post">
   <input type ="submit" value ="Delete Member"/>
 </form>

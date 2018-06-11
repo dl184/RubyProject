@@ -1,0 +1,12 @@
+<h1>Members signed up to a class</h1>
+
+<p>Name: <%=@members.first_name %> <%=@members.second_name %></p>
+<p>Class: <%=@gymclass.title %> </p>
+
+<form action ="/signed_up/<%= @signed_up.id %>edit" method="get">
+  <input type ="submit" value = "Edit Members Class"/>
+</form>
+
+<form action ="/signed_up/<%= @signed_up.id %>/delete" method="post">
+  <input type ="submit" value ="Delete Member"/>
+</form>

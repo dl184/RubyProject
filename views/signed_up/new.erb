@@ -1,0 +1,21 @@
+<h1>Hello</h1>
+
+<form action="gymclass/<%@gymclass.id%>/signed_up" method="post">
+  <label>
+    Select a Member:
+    <select name="member_id">
+      <% for members in @members %>
+      <option value="<%= member.id %>"<%=member.first_name %></option>
+      </select>
+  </label>
+  <label>
+    Select a Gym Class:
+    <select gymclass="gymclass_id">
+      <% for gymclass in @gymclass %>
+      <option value="<%= gymclass.id>"<%=gymclass.title %></option>
+    </select>
+  </label>
+
+
+  <input type = 'submit' value="Add to class">
+</form>

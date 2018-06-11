@@ -61,6 +61,11 @@ class Member
     return Member.new(results.first)
   end
 
+  def full_name()
+    values = [@first_name, @second_name].join
+    SqlRunner.run(sql, values)
+    return results
+  end
 
 
 end

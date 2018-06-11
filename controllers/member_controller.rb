@@ -14,26 +14,26 @@ get '/members/new' do #new
 end
 
 get '/members/:id' do #show
-  @members = Member.find(params['id'])
+  @members = Member.find(params['id'].to_i)
   erb (:"members/show")
 end
 
 get '/member/:id/edit' do #edit
-  @member = Gymclass.find(params[:id])
-  erb (:"edit")
+  @member = Member.find(params[:id])
+  erb (:"members/edit")
 end
 
-post '/member/:id' do #create new member
+post '/members' do #create new member
   Member.new(params).save
   redirect to '/members'
 end
 
-post '/member/:id' do #update
+post '/members/:id' do #update
   Member.new(params).update
-  redirect to "member/#{params['id']}"
+  redirect to "members/#{params['id']}"
 end
 
-post '/member/:id/delete' do #delete
+post '/members/:id/delete' do #delete
   Member.delete(params[:id])
   redirect to '/members'
-end 
+end
