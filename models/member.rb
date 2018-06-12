@@ -5,12 +5,13 @@ require_relative("./signed_up.rb")
 class Member
 
   attr_reader( :id )
-  attr_accessor( :first_name, :second_name )
+  attr_accessor( :first_name, :second_name, :member_info )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @first_name = options['first_name']
     @second_name = options['second_name']
+    @member_info = options['member_info']
   end
 
   def gymclass()
@@ -22,11 +23,11 @@ class Member
 
   def save() #create new member
     sql = "INSERT INTO members
-    (first_name,second_name)
+    (first_name,second_name, member_info)
     VALUES
-    ($1, $2)
+    ($1, $2, $3)
     RETURNING id"
-    values = [@first_name, @second_name]
+    values = [@first_name, @second_name, @member_info]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -49,8 +50,8 @@ class Member
   end
 
   def update()
-    sql = "UPDATE members SET(first_name, second_name) = ($1, $2) WHERE id = $3;"
-    values = [@first_name, @second_name, @id]
+    sql = "UPDATE members SET(first_name, second_name, member_info) = ($1, $2, $3) WHERE id = $4;"
+    values = [@first_name, @second_name, @member_info, @id]
     SqlRunner.run(sql,values)
   end
 

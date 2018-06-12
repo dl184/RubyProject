@@ -9,19 +9,28 @@ Signed_up.delete_all()
 
 member1 = Member.new({
   "first_name" => "Clive",
-  "second_name" => "Jones"
+  "second_name" => "Jones",
+  "member_info" => "Date of birth: 22/05/1984,
+                    Membership type: Regular,
+                    Join date: 02/01/2018"
   })
   member1.save()
 
   member2 = Member.new({
     "first_name" => "Susan",
-    "second_name" => "Swan"
+    "second_name" => "Swan",
+    "member_info" => "Date of birth: 03/09/1992,
+                      Membership type: Premium,
+                      Join date: 07/01/2018"
     })
     member2.save()
 
     member3 = Member.new({
       "first_name" => "Paul",
-      "second_name" => "Johnson"
+      "second_name" => "Johnson",
+      "member_info" => "Date of birth: 22/05/1984,
+                        Membership type: Regular,
+                        Join date: 19/01/2018"
       })
       member3.save()
 

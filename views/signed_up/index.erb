@@ -3,16 +3,23 @@
 <form method ="get" action ="/signed_up/new">
   <input type ="submit" value="New Booking"/>
 </form>
-<ul>
-<% for signed_up in @signed_up %>
-<li>
-  <p><%= signed_up.member.first_name %> <%= @signed_up.sample %> <%= signed_up.gymclass.title %> </p>
 
-<p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Class</th>
+  </tr>
+<% for signed_up in @signed_up %>
+<tr>
+  <td><%= signed_up.member.first_name %> </td>
+  <!-- <td><%= signed_up.member.second_name %> </td> -->
+  <td><%= signed_up.gymclass.title %> </td>
+</tr>
+<td>
   <form action="/signed_up/<%= signed_up.id %>/delete" method="POST">
     <input class="btn btn --danger" type="submit" value="delete" />
   </form>
-</p>
-</li>
+</td>
+
 <% end %>
-</ul>
+</table>

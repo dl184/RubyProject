@@ -3,6 +3,8 @@
 
 <p>Name: <%=@members.first_name %> <%=@members.second_name %></p>
 
+<p>Member Info: <%=@members.member_info %></p>
+
 <form action ="/member/<%= @members.id %>/edit" method="get">
   <input type ="submit" value ="Edit Members"/>
 </form>
