@@ -1,25 +1,28 @@
 <h1>Gym Classes</h1>
 
 <form method "get" action="/gymclass/new">
-  <input type="submit" value="New Class"/>
+  <input class ="w3-button w3-border w3-hover-red" type ="submit" value ="New class"/>
+
 </form>
 
 <table>
   <tr>
     <th>Title</th>
     <th>Time</th>
+    <th></th>
   </tr>
 
   <% for gymclass in @gymclass %>
   <tr>
     <td><%= gymclass.title %></td>
     <td><%= gymclass.time %></td>
+    <td>
+    <form action ="/gymclass/<%= gymclass.id%>">
+      <input type ="submit" value ="Class Info"/>
+    </form>
+  </td>
 </tr>
-<td>
-  <form action ="/gymclass/<%= gymclass.id%>">
-    <input type ="submit" value ="Class Info"/>
-  </form>
-</td>
+
 
   <%end%>
 </table>

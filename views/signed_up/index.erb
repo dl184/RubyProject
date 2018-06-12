@@ -1,25 +1,24 @@
 <h1>All bookings</h1>
 
 <form method ="get" action ="/signed_up/new">
-  <input type ="submit" value="New Booking"/>
+  <input class ="w3-button w3-border w3-hover-red" type ="submit" value ="Member and class"/>
 </form>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Class</th>
+    <th></th>
   </tr>
 <% for signed_up in @signed_up %>
 <tr>
   <td><%= signed_up.member.first_name %> </td>
-  <!-- <td><%= signed_up.member.second_name %> </td> -->
   <td><%= signed_up.gymclass.title %> </td>
+  <td>
+    <form action="/signed_up/<%= signed_up.id %>/delete" method="POST">
+      <input class="btn btn --danger" type="submit" value="delete" />
+    </form>
+  </td>
 </tr>
-<td>
-  <form action="/signed_up/<%= signed_up.id %>/delete" method="POST">
-    <input class="btn btn --danger" type="submit" value="delete" />
-  </form>
-</td>
-
 <% end %>
 </table>

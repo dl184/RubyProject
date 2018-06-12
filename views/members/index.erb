@@ -1,24 +1,26 @@
 <h1>Members Page</h1>
 
-<form method="get" action="members/new">
-  <input type ="submit" value ="New Member"/>
+<form method="get" action="/members/new">
+  <input class ="w3-button w3-border w3-hover-red" type ="submit" value ="New Member"/>
 </form>
 
 <table>
   <tr>
     <th>First Name</th>
     <th>Second Name</th>
+    <th></th>
   </tr>
   <% for member in @members %>
   <tr>
     <td><%= member.first_name %></td>
     <td><%= member.second_name %></td>
+    <td>
+      <form action="/members/<%= member.id%>">
+        <input type="submit" value="View Member"/>
+      </form>
+    </td>
   </tr>
-  <td>
-    <form action="/members/<%= member.id%>">
-      <input type="submit" value="View Member"/>
-    </form>
-  </td>
+
 
   <%end%>
 </table>
