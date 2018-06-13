@@ -2,10 +2,10 @@
 
 
 <p>Name: <%=@members.first_name %> <%=@members.second_name %></p>
+<p>Date of Birth <%= @members.dob %></p>
+<p>Membership Type <%= @members.membership_type %></p>
+<p>Join Date <%= @members.join_date %></p>
 
-<p>Date of Birth <%=@members.dob %></p>
-<p>Membership Type <%=@members.membership_type %></p>
-<p>Join Date <%=@members.join_date %></p>
 
 <form action ="/member/<%= @members.id %>/edit" method="get">
   <input type ="submit" value ="Edit Members"/>

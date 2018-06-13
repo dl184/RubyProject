@@ -6,8 +6,14 @@
   <label for ="second_name-field">Second Name</label>
   <input type ="text" name ="second_name" id ="second_name-field" value ="<%= @member.second_name%>"/>
 
-  <label for = "edit_member_info-field">Edit member info</label>
-  <input type "text" name ="title" id ="edit_member_info-field" value ="<%= @member.member_info %>" />
+  <label for = "dob-field">Dob</label>
+  <input type ="text" name ="title" id ="dob-field" value ="<%= @member.dob %>" />
+
+  <label for = "membership_type-field">Membership type</label>
+  <input type ="text" id ="membership_type-field" value ="<%= @member.membership_type %>" />
+
+  <label for ="join_date-field">Join Date</label>
+  <input type ="text" id ="join_date-field" value ="<%= @member.join_date %>" />
 
   <input type ="submit" values ="Edit Member" />
 
