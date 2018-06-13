@@ -1,7 +1,7 @@
 <h1>All bookings</h1>
 
 <form method ="get" action ="/signed_up/new">
-  <input class ="w3-button w3-border w3-hover-red" type ="submit" value ="Member and class"/>
+  <input class ="w3-button w3-border w3-hover-red" type ="submit" value ="Add member to class"/>
 </form>
 
 <table>
@@ -16,7 +16,7 @@
   <td><%= signed_up.gymclass.title %> </td>
   <td>
     <form action="/signed_up/<%= signed_up.id %>/delete" method="POST">
-      <input class="btn btn --danger" type="submit" value="delete" />
+      <input class="btn btn --danger" type="submit" value="Delete" />
     </form>
   </td>
 </tr>

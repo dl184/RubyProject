@@ -1,6 +1,3 @@
-
-
-
 body{
   font-size: 20px;
   color: red;
@@ -21,7 +18,7 @@ html{
 h1{
   color: #2E1CD0;
   text-align:center;
-  text-shadow: 4px 4px black;
+  text-shadow: 2.5px 2.5px black;
   font-size: 200px;
   color: red;
 
@@ -80,4 +77,12 @@ th, td {
 .button:hover {
     background-color: red;
     color: white;
+}
+
+.center {
+margin: 0 auto;
+width: max-content;
+display: flex;
+flex-direction: column;
+
 }
