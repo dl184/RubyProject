@@ -52,7 +52,7 @@ class Member
   end
 
   def update()
-    sql = "UPDATE members SET(first_name, second_name, dob, membership_type, join_date) = ($1, $2, $3, $4, $5) WHERE id = $6"
+    sql = "UPDATE members SET (first_name, second_name, dob, membership_type, join_date) = ($1, $2, $3, $4, $5) WHERE id = $6"
     values = [@first_name, @second_name, @dob, @membership_type, @join_date, @id]
     SqlRunner.run(sql,values)
   end
